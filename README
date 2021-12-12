@@ -1,0 +1,27 @@
+Proceso de instalacion & puesta en marcha del aplicativo:
+
+1. Instalar:
+1.1. npm
+1.2. nodejs
+1.3. mongodb
+1.4. postman 
+1.5. git<opcional>
+1.6. compass<opcional>
+
+2. Poner en marcha:
+2.1. Descargar el proyecto de github.
+2.2. Ingresar a la carpeta del proyecto.
+2.3. Instalar angular con el commando "npm install -g @angular/cli"
+2.4. Ingresar a las 3 carpetas y ejecutar el comando "npm install", esto da como resultado la configuracion de las carpetas.
+2.5. Ingresar en terminales separadas para la 3 carpetas, y ejecutar el comando "npm start".
+2.6. Ingresar en el navegador la ruta arrojada por la terminal de "Admin" o "tienda".
+2.7. El aplicativo esta funcionando en tu maquina!
+
+3. Primer inicio de sesion como administrador:
+3.1. Abrir postman y enviar por la url localhost + "api/administrador/registro" enviando "nombres", "email", "password", "telefono", "rol", atravez del body/urlencoded
+3.2. El rol debe ser = "administrador"
+
+4. Primer inicio de sesion como cliente:
+4.1 Estando logeado como administrador registrar un cliente.
+4.2 Iniciar sesion desde la pagina principal del aplicativo con el correo y la contrasena por default 1-9.
+

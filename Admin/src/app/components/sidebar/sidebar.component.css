@@ -1,0 +1,14 @@
+/* @media (min-width: 992px) {
+    aside {
+        width: 80px;
+        transition: width .3s ease;
+    }
+    aside:hover {
+        width: 300px;
+        transition: width .3s ease;
+        box-shadow: 5px 0 10px rgb(70 78 95 / 8%);
+    }
+    aside:hover::-webkit-scrollbar {
+        display: block;
+    }
+} */

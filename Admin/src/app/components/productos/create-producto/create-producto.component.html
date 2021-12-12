@@ -1,0 +1,83 @@
+<app-sidebar></app-sidebar>
+
+<!-- Page title-->
+<div class="border-bottom pt-5 mt-2 mb-5">
+    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Productos</h1>
+    <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+        <p class="text-muted">Este módulo lista todos los productos de la tienda.</p>
+
+    </div>
+</div>
+
+<form class="needs-validation" #registroForm="ngForm" (ngSubmit)="registro(registroForm)" novalidate>
+    <div class="card box-shadow-sm">
+        <div class="card-header">
+            <h5 style="margin-bottom: 0px;">Registro de producto</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-12 form-group">
+                            <label for="">Titulo de producto</label>
+                            <input type="text" class="form-control" placeholder="Titulo de producto" name="titulo" [(ngModel)]="producto.titulo" required>
+                            <div class="invalid-tooltip">Proporcione un titulo valido</div>
+                        </div>
+                        <div class="col-lg-4 form-group">
+                            <label for="">Stock</label>
+                            <input type="number" class="form-control" placeholder="Cantidad inicial" name="stock" [(ngModel)]="producto.stock" min="0" pattern="^[0-9]+" required>
+                            <div class="invalid-tooltip">Proporcione un stock valido</div>
+                        </div>
+                        <div class="col-lg-4 form-group">
+                            <label for="">Precio</label>
+                            <input type="number" class="form-control" placeholder="Precio" name="precio" [(ngModel)]="producto.precio" min="0" pattern="^[0-9]+" required>
+                            <div class="invalid-tooltip">Proporcione un precio valido</div>
+                        </div>
+                        <div class="col-lg-4 form-group">
+                            <label for="">Categoría</label>
+                            <select class="form-control custom-select" id="select-input" name="categoria" [(ngModel)]="producto.categoria" required>
+                                <option value="" selected disabled>Seleccionar</option>
+                                <option value="{{item.titulo}}" *ngFor="let item of config_global.categorias">{{item.titulo}}</option>
+                                
+                            </select>
+                            <div class="invalid-tooltip">Seleccione una categoria valida</div>
+                        </div>
+
+                        <div class="col-lg-12 form-group">
+                            <label for="">Descripción</label>
+                            <tinymce [config]="config" name="descripcion" [(ngModel)]="producto.descripcion" required>
+                            </tinymce>
+                            <div class="invalid-tooltip">Seleccione una categoria valida</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12 form-group">
+                            <label for="">Portada</label>
+                            <div class="custom-file">
+                                <input class="form-control custom-file-input" type="file" id="file-input" (change)="fileChangeEvent($event)" accept="image/*" required>
+                                <label class="custom-file-label" id="input-portada" for="file-input" style="white-space:nowrap;overflow:hidden">Seleccionar imagen</label>
+                            </div>
+                            <div class="valid-tooltip">Se ve bien!</div>
+                            <div class="invalid-tooltip">Proporcione un archivo de imagen valido</div>
+                        </div>
+                        <div class="col-lg-12">
+                            <img [src]="imgSelect" class="img-thumbnail" alt="Rounded image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button *ngIf="!load_btn" class="btn btn-primary mr-3" type="submit">Crear producto</button>
+
+            <button *ngIf="load_btn" class="btn btn-primary mr-3" type="submit">
+                <span class="spinner-grow spinner-grow-sm me-2" role="status" aria-hidden="true"></span>
+                Creando producto ...
+            </button>
+            <a [routerLink]="['/panel/productos']" class="btn btn-warning">Regresar</a>
+        </div>
+    </div>
+</form>
